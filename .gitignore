@@ -1,0 +1,13 @@
+dist
+package-lock.json
+node_modules
+.idea
+.vscode
+*.log
+yarn.lock
+.env
+.env*
+../node_modules
+../yarn.lock
+*.p8
+*.pem

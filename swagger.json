@@ -1,0 +1,150 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "NodeJs API Documentation",
+        "contact": {},
+        "version": "1.0.0",
+        "description": "This is my NodeJs API Documentation For Testing an API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/api/v1",
+            "variables": {}
+        }
+    ],
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register User",
+                "operationId": "RegisterUser",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterUserRequest"
+                            },
+                            "example": {
+                                "username": "bob",
+                                "email": "bob@gmail.com",
+                                "password": "secret"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "User has been registered",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login User",
+                "operationId": "LoginUser",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginUserRequest"
+                            },
+                            "example": {
+                                "email": "sith@gmail.com",
+                                "password": "sith"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "User has been login",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "RegisterUserRequest": {
+                "title": "RegisterUserRequest",
+                "required": [
+                    "username",
+                    "email",
+                    "password"
+                ],
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "username": "bob",
+                    "email": "bob@gmail.com",
+                    "password": "secret"
+                }
+            },
+            "LoginUserRequest": {
+                "title": "LoginUserRequest",
+                "required": [
+                    "email",
+                    "password"
+                ],
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "email": "susan@gmail.com",
+                    "password": "secret"
+                }
+            }
+        },
+        "securitySchemes": {
+            "httpBearer": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "httpBearer": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Auth",
+            "description": ""
+        }
+    ]
+}
