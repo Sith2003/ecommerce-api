@@ -5,7 +5,7 @@ const getAllProducts = async (req, res) => {
     // if (!req.session.userRole || (req.session.userRole != config.role.ADMIN_ROLE)) throw config.statusMessage.PERMISSION_DENIED;
     // console.log(req.session)
     const products = await productServices.getProducts();
-    return res.status(200).json({
+    return res.json({
       total: products.length,
       data: products,
     });
@@ -18,7 +18,7 @@ const getAllProducts = async (req, res) => {
 const productPagination = async (req, res) => {
   try {
     const products = await productServices.productPagination(req);
-    return res.status(200).json({
+    return res.json({
       total: products.length,
       data: products,
     });

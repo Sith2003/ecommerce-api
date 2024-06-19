@@ -28,7 +28,7 @@ const register = async(req, res) => {
             index: 'users',
             body: userData
         })
-        return res.status(200).json({
+        return res.json({
             message: "Register successfully",
             data
         })
